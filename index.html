@@ -4,11 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1 class="text-4xl font-bold mt-0 underline">
-        Hello world!
-      </h1>
+
+      <nav>
+        <!-- Sidebar nur auf Handy Sichtbar (siehe @media in style.css)-->
+        <ul class="sidebar">
+            <!-- Schließen-Button der Sidebar. Ruft die Funktion "hideSidebar()" auf -->
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="#">Profil</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Übungsseite</a></li>
+            <li><a href="#">Einstellungen</a></li>
+
+        </ul>
+        <!-- Navigationsliste nur im Browser Sichtbar (siehe @media in style.css)-->
+        <ul>
+            <li class="hideOnMobile"><a href="#">Profil</a></li>
+            <li class="hideOnMobile"><a href="#">Dashboard</a></li>
+            <li class="hideOnMobile"><a href="#">Übungsseite</a></li>
+            <li class="hideOnMobile"><a href="#">Einstellungen</a></li>
+             <!-- Button zum Öffnen der Sidebar. Ruft die Funktion "showSidebar()" auf -->
+            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+
+        </ul>
+      </nav>
+
+      <script>
+         // Funktion zum Anzeigen der Sidebar
+        function showSidebar(){
+            const sidebar =document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+         // Funktion zum Schließen der Sidebar
+        function hideSidebar(){
+            const sidebar =document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+        
+      </script>
 </body>
 </html>
