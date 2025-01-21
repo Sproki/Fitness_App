@@ -6,35 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Anmeldemaske</title>
     <!-- Link zu deinem externen CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="anmeldemaske.css">
     <!-- TailwindCSS CDN einbinden -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  
-        
-        <div class="shape rect background"></div>
-                     <!-- Verlinkung zur Haubtseite-->
-        <form action="index.html" method="get">
-                    <!-- Anmelden -->
-            <div class="shape text Anmelden">
-              <button type="submit">Anmelden</button>
-            </div>
-
-                    <!-- Vorname Textfeld -->
-            <div class="shape text vorname">  
-                <input type="text" id="vorname" name="vorname" placeholder="Vorname..." required>
-            </div>
-                    <!-- Nachname Textfeld -->
-            <div class="shape text nachname">  
-                <input type="text" id="nachname" name="nachname"placeholder="Nachname..." required>
-            </div>
-                        <!-- Text Unten -->
-        <div class="shape text unten">
-            <div class="text-node" style="color: rgba(255, 255, 255, 0.4); font-size: 12px; font-family: 'Source Sans Pro'; font-weight: bold;">
-                by Pascal & Gabriel & Maurice
-            </div>
-        </div>
+<div class="background"></div>
+    <div class="formInputs">
+        <form action="index.html" method="POST">
+            <input class="inputField" type="text" name="vorname" placeholder="Vorname..." required>
+            <input class="inputField" type="text" name="nachname"placeholder="Nachname..." required>
+            <button type="submit" class="button">Anmelden</button>
+        </form>
     </div>
+    <p class="foundersText">by Pascal, Gabriel & Maurice</p>
 </body>
 </html>
