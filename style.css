@@ -7,7 +7,7 @@ body{
     min-height: 100vh;
 }
 nav{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 nav ul{
@@ -26,14 +26,12 @@ nav a{
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 nav li:first-child{
     margin-right: auto;
 }
-nav a:hover{
-    background-color: lightgray;
-}
+
 
 .sidebar{
     position: fixed;
@@ -71,6 +69,13 @@ nav a:hover{
     }
 }
 
+.Ueberschrift{
+  position: absolute;
+  left: 150px;
+  top: 9px;
+  width: 280px;
+}
+
 
 @font-face {
     font-family: 'sourcesanspro';
@@ -104,7 +109,7 @@ nav a:hover{
   /* sorgt dafür das das Text feld Trasparent ist und keine umrandung hat */
   input[type="text"]{
     background-color: transparent;
-    outline: none;
+    outline: none; 
 }
 
  /* Vorname Textfeld Style(Border, Size, Color, Posizion)  */
