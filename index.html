@@ -46,5 +46,77 @@
         }
         
       </script>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="carousel-container">
+  <div class="carousel">
+    <button class="carousel-button left">&#8249;</button>
+    <div class="carousel-track">
+      <div class="carousel-item">
+        <iframe src="https://www.youtube.com/embed/2qOOGrcxuTE?si=wcbMXf9YKqscqFXY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="carousel-item">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <button class="carousel-button right">&#8250;</button>
+  </div>
+</div>
+
+
+
+
+<script>
+const track = document.querySelector('.carousel-track');
+const items = Array.from(track.children);
+const leftButton = document.querySelector('.carousel-button.left');
+const rightButton = document.querySelector('.carousel-button.right');
+let currentIndex = 0;
+
+// Funktion, um das Karussell zu aktualisieren
+function updateCarousel() {
+  const offset = -currentIndex * 100;
+  track.style.transform = `translateX(${offset}%)`;
+}
+
+// Funktion, um nur das aktuelle Video anzuzeigen
+function showVideo(index) {
+  items.forEach((item, i) => {
+    const iframe = item.querySelector('iframe');
+    if (i === index) {
+      iframe.style.display = 'block';  // Zeigt das Video an
+    } else {
+      iframe.style.display = 'none';   // Versteckt die anderen Videos
+    }
+  });
+}
+
+// Initialisiere das Karussell und zeige das erste Video
+showVideo(currentIndex);
+
+leftButton.addEventListener('click', () => {
+  currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+  updateCarousel();
+  showVideo(currentIndex);
+});
+
+rightButton.addEventListener('click', () => {
+  currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+  updateCarousel();
+  showVideo(currentIndex);
+});
+
+</script>
+  
+
+
+
 </body>
 </html>

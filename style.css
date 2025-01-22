@@ -59,6 +59,71 @@ nav a:hover{
 .menu-button{
     display: none;
 }
+  
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+  
+.carousel-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+  
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+  
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+}
+  
+  
+.carousel-item iframe {
+    
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+  
+.carousel-item video.active {
+    display: block;
+}
+  
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+  
+.carousel-button.left {
+    left: 10px;
+}
+  
+.carousel-button.right {
+    right: 10px;
+}
+  
+
+
+
 @media(max-width: 800px){
     .hideOnMobile{
         display: none;
@@ -69,4 +134,15 @@ nav a:hover{
     .menu-button{
         display: block;
     }
+    .carousel-container {
+        width: 100%;
+        max-width: 100%;
+      }
+    .video-container{
+        flex-direction: column;
+    }
+    .carousel-button{
+        font-size: 25px; 
+    }
+    
 }
