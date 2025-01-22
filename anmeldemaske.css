@@ -55,9 +55,9 @@ body {
 }
 
 .foundersText {
-    color: #e9ecef;
-    opacity: 40%;
-
+    color: #333333;
+    opacity: 50%;
+    
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
