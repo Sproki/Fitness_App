@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('fonts/SourceSansPro-Regular.otf');
+}
+
+body {
+    font-family: 'SourceSansPro';
+}
+
 .background {
     position: fixed;
     width: 100%;
@@ -29,18 +38,20 @@
     border-radius: 500px;
     color: white;
     font-weight: bold;
+    border: none;
   }
 
 .inputField{
     z-index: 1;
     background-color: #343a40;
-    width: 300px;
+    width: 278px;
     height: 45px;
     border-radius: 500px;
     padding-left: 20px;
     outline: none;
     color: white;
     margin-bottom: 25px;
+    border: none;
 }
 
 .foundersText {
