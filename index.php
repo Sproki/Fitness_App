@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Anmeldemaske</title>
     <!-- Link zu deinem externen CSS -->
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 <div class="background"></div>
