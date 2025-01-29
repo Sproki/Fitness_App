@@ -6,9 +6,6 @@
         <title>Document</title>
         <link rel="stylesheet" href="global.css">
         <script src="https://cdn.tailwindcss.com"></script>
-
-        <script src="scripts/darkModeHandler.js"></script>
-    
     </head>
     <header>
         <?php include("components/profile.html"); ?>
@@ -16,7 +13,7 @@
 
         <?php include("components/darkModeButton.html"); ?>
     </header>
-    <body>
+    <body class="">
         <div class="mx-[40px]">
             <div class="my-5">
                 <h2 class="text-2xl text-black">Willkommen zurück💪</h2>
@@ -63,4 +60,7 @@
             <hr class="my-5">
         </div>
     </body>
+
+        <script src="scripts/darkModeHandler.js"></script>
+        <script src="scripts/tailwind.config.js"></script>
 </html>
