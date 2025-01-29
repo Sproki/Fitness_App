@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <title>Document</title>
         <link rel="stylesheet" href="global.css">
         <script src="https://cdn.tailwindcss.com"></script>
+
+        <script src="scripts/darkModeHandler.js"></script>
+    
     </head>
     <header>
         <?php include("components/profile.html"); ?>
         <?php include("components/navbar.html"); ?>
+
+        <?php include("components/darkModeButton.html"); ?>
     </header>
-    <body class="">
+    <body>
         <div class="mx-[40px]">
             <div class="my-5">
-                <h2 class="text-2xl">Willkommen zurück💪</h2>
-                <h1 class="text-3xl font-bold">Pascal</h1>
+                <h2 class="text-2xl text-black">Willkommen zurück💪</h2>
+                <h1 class="text-3xl text-black font-bold">Pascal</h1>
             </div>
             <div class="grid grid-flow-col grid-rows-2 gap-[10px]">
                 <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px]"></div>
