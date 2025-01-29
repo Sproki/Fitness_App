@@ -58,6 +58,49 @@
                 </div>
             </div>
             <hr class="my-5">
+
+            <div class="my-5">
+                <h2 class="text-2xl">Beispielvideos:</h2>
+            </div>
+
+
+            <div class="grid grid-flow-col grid-rows-2 gap-[10px]">
+                <!-- Erster Container (mit YouTube-Video) -->
+                <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px] flex items-center justify-center overflow-hidden">
+                    <iframe 
+                    class="w-full h-full rounded-[15px]"
+                    src="https://www.youtube.com/embed/2qOOGrcxuTE?si=ecegmp6snrdyksBd" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Zweiter Container (mit YouTube-Video) -->
+                <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px] flex items-center justify-center overflow-hidden">
+                    <iframe 
+                    class="w-full h-full rounded-[15px]"
+                    src="https://www.youtube.com/embed/vSl23jffAAg?si=341glG97D0mDidLL" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                    </iframe>
+                </div>
+            </div>    
+            <br>
+                <div class="bg-gray-100 w-[330px] h-[150px] row-span-2 rounded-[15px] flex items-center justify-center overflow-hidden">
+                    <iframe 
+                    class="w-full h-full rounded-[15px]"
+                    src="https://www.youtube.com/embed/uXFjLXgIcYc?si=y3_1UbWkfTkFn29M" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                    </iframe>
+                </div>
+                <hr class="my-5">
         </div>
     </body>
 
