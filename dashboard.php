@@ -23,16 +23,44 @@
                 <h1 class="text-3xl text-black font-bold">Pascal</h1>
             </div>
             <div class="grid grid-flow-col grid-rows-2 gap-[10px]">
-                <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px]"></div>
-                <div class="bg-gray-100 w-[150px] h-[70px] col-span-2 rounded-[15px]">
-                    <div class="grid grid-flow-col grid-rows-2">
-                        <p class="text-center row-span-2">🔥</p>
-                        <p class="text-[12px] col-span-2">Verbrannte Kalorien</p>
-                        <p class="text-[12px] col-span-2">300 kcal</p>
+                <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px]">
+
+                </div>
+                
+                <div class="bg-gray-100 w-[150px] h-[70px] col-span-2 rounded-[15px] flex items-center px-4">
+                    <div class="flex items-center gap-2">
+                    <p class="text-3xl">🔥</p>
+                    <div>
+                        <p class="text-[11px] font-semibold">Heute verbrannt</p>
+                        <p class="text-[11px] font-bold">300 kcal</p>
+                    </div>
                     </div>
                 </div>
-                <div class="bg-gray-100 w-[150px] h-[70px] col-span-2 rounded-[15px]"></div>
+                
+                <div class="bg-gray-100 w-[150px] h-[70px] col-span-2 rounded-[15px] flex items-center px-4">
+                    <div class="flex items-center gap-2">
+                        <p class="text-3xl">🏃</p>
+                        <div>
+                            <p class="text-[11px] font-semibold">Heute gelaufen</p>
+                            <p class="text-[11px] font-bold">12 Kilometer</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+            <hr class="my-5">
+            <div>
+                <h2 class="text-xl text-black mb-3">Deine verdienten Medallien</h2>
+                <div class="bg-gray-100 w-full h-[100px] rounded-[15px] flex items-center justify-center overflow-x-auto">
+                    <div class="flex gap-[10px]">
+                        <img src="https://placehold.co/100x100" class="rounded-full w-[80px] h-[80px]">
+                        <img src="https://placehold.co/100x100" class="rounded-full w-[80px] h-[80px]">
+                        <img src="https://placehold.co/100x100" class="rounded-full w-[80px] h-[80px]">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5">
         </div>
     </body>
 </html>
