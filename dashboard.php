@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+
+    if (!isset($_SESSION["vorname"])) {
+        header("Location: index.php");
+        exit();
+    }
+
+    $vorname = htmlspecialchars($_SESSION["vorname"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="">
     <head>
@@ -12,11 +23,11 @@
 
         <?php include("components/darkModeButton.html"); ?>
     </header>
-    <body>
-        <div class="mx-[40px]">
+    <body class="z-10">
+        <div class="mx-[40px] mb-20">
             <div class="my-5">
                 <h2 class="text-2xl text-black">Willkommen zurück💪</h2>
-                <h1 class="text-3xl text-black font-bold">Pascal</h1>
+                <h1 class="text-3xl text-black font-bold"><?php echo $vorname?></h1>
             </div>
             <div class="grid grid-flow-col grid-rows-2 gap-[10px]">
                 <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px]">
@@ -95,6 +106,19 @@
                     </div>
                 </div>             
             </div>
+             <hr class="my-5">
+
+             <div>
+                <h2 class="text-xl mb-5">Training of the Day 🏋️‍♂️</h2>
+                <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex">
+                    <img src="https://placehold.co/100x100" class="left-0 w-auto h-full rounded-[15px]">
+                    <article class="overflow-scroll my-5 mx-3">
+                        <h3 class="mb-2 font-semibold">Leg Power & Endurance Boost 🏃‍♂️</h3>
+                        <p>5 km Lauf auf mittlerer Geschwindigkeit, gefolgt von 3x10 Kniebeugen mit Zusatzgewicht. Perfekt für Ausdauer und Beinkraft! 🚀🔥</p>
+                    </article>
+                </div>
+             </div>
+
              <hr class="my-5">
         </div>
     </body>
