@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <title>Document</title>
         <link rel="stylesheet" href="global.css">
-        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <header>
         <?php include("components/profile.html"); ?>
@@ -99,6 +98,7 @@
              <hr class="my-5">
         </div>
     </body>
+        <script src="https://cdn.tailwindcss.com"></script>
 
         <script src="scripts/darkModeHandler.js"></script>
         <script src="scripts/tailwind.config.js"></script>
