@@ -12,7 +12,7 @@
 
         <?php include("components/darkModeButton.html"); ?>
     </header>
-    <body class="">
+    <body>
         <div class="mx-[40px]">
             <div class="my-5">
                 <h2 class="text-2xl text-black">Willkommen zurück💪</h2>
