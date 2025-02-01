@@ -1,10 +1,10 @@
 <?php 
     session_start();
     
-    $sessionTimeout = 10; // 10 Sekunden
+    $sessionTimeout = 600; // 10 Minuten
 
     if (!isset($_SESSION["firstname"])) {
-        header("Location: login.php");
+        header("Location: index.php");
         exit;
     }
 
@@ -12,7 +12,7 @@
     if (isset($_SESSION["last_activity"]) && (time() - $_SESSION["last_activity"]) > $sessionTimeout) {
         session_unset();
         session_destroy();
-        header("Location: login.php");
+        header("Location: index.php");
         exit;
     }
 
@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="global.css">
     </head>
     <header>
-        <?php include("components/profile.html"); ?>
+        <?php include("components/profile.php"); ?>
         <?php include("components/navbar.html"); ?>
 
         <?php include("components/darkModeButton.html"); ?>
@@ -79,6 +79,7 @@
                     </div>
                 </div>
             </div>
+
             <hr class="my-5">
 
             <div>

@@ -34,7 +34,7 @@
             session_start();
             $_SESSION["firstname"] = $firstname;
 
-            header("Location: dashboard.php");
+            header("Location: index.php");
             exit;
         } else {
             die("Fehler: Beim Speichern in der Datenbank ist ein Problem aufgetreten.");

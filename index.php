@@ -41,11 +41,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anmelden</title>
-    <link rel="stylesheet" href="register.css">
 </head>
 <body class="flex items-center justify-center h-screen">
 <div class="fixed inset-0 bg-cover bg-center bg-no-repeat scale-110 blur-[3px] -z-10" style="background-image: url('img/loginBackgroundImg.png');"></div>
-    <form action="login.php" method="POST" class="flex flex-col gap-4">
+    <form action="index.php" method="POST" class="flex flex-col gap-4">
         <div class="flex flex-col gap-4">
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-3xl font-bold text-white">Anmelden</h1>
