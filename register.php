@@ -23,7 +23,7 @@
             die("Fehler: Ein Benutzer mit dieser E-Mail existiert bereits.");
         }
 
-        $stmt = $con->prepare("INSERT INTO users (firstname, lastname, email, password, joined) 
+        $stmt = $con->prepare("INSERT INTO users (firstname, lastname, email, password, created_at) 
                             VALUES (:firstname, :lastname, :email, :password, SYSDATE())");
         $stmt->bindParam(":firstname", $firstname);
         $stmt->bindParam(":lastname", $lastname);
