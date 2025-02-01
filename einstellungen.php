@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <title>Document</title>
-        <link rel="stylesheet" href="global.css">
     </head>
 
     <header>
@@ -20,5 +19,4 @@
 
     <script src="scripts/darkModeHandler.js"></script>
     <script src="scripts/tailwind.config.js"></script>
-
 </html>

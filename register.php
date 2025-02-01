@@ -64,6 +64,7 @@
             <input placeholder="Passwort" type="password" name="password" class="w-[300px] h-[45px] rounded-full bg-gray-600 p-4 outline-none text-white">
         </div>
         <button name="submit" class="text-center bg-gray-300 w-[300px] h-[45px] rounded-full text-gray-600">Account Erstellen</button>
+        <a href="index.php" class="text-center text-gray-300 hover:text-gray-600">Anmelden</a>
     </form>
     <p class="absolute bottom-2 text-gray-600 text-center">by Pascal, Gabriel & Maurice</p>
 </body>
