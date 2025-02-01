@@ -47,7 +47,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Registrieren</title>
     <link rel="stylesheet" href="register.css">
 </head>
 <body class="flex items-center justify-center h-screen">
