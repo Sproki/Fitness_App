@@ -1,5 +1,6 @@
 <?php
-    require("connection.php");
+    global $con;
+    require("autoload.php");
 
     if(isset($_POST["submit"])) {
 

@@ -20,8 +20,9 @@
 
     $firstname = htmlspecialchars($_SESSION["firstname"]);
 
-    require("connection.php");
-    
+    global $con;
+    require("autoload.php");
+
     try {
         $sql = "SELECT title, description FROM exercises ORDER BY RAND() LIMIT 1";
         $stmt = $con->prepare($sql);

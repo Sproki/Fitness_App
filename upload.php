@@ -1,9 +1,10 @@
 <?php
-    session_start();
+global $con;
+require("autoload.php");
 
-    require("connection.php");
+session_start();
 
-    if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
         die("Fehler: Nicht eingeloggt.");
     }
 
