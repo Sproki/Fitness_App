@@ -30,8 +30,6 @@ CREATE TABLE statistic (
         UNIQUE (user_id, `date`, `key`)
 );
 
-ALTER TABLE statistic add UNIQUE (user_id, `date`, `key`);
-
 INSERT INTO exercises(title, description, kcal)
 VALUES("Leg Power & Endurance Boost",
        "5 km Lauf auf mittlerer Geschwindigkeit, gefolgt von 3x10 Kniebeugen mit Zusatzgewicht. Perfekt für Ausdauer und Beinkraft!",
@@ -64,6 +62,3 @@ INSERT INTO exercises(title, description, kcal)
 VALUES("Leg Day Fire",
        "4x12 Kniebeugen, 3x15 Ausfallschritte, 3x20 Wadenheben. Perfekt für starke Beine und Po.",
        300);
-
-INSERT INTO statistic(user_id, `date`, `key`, value)
-VALUES (1, "2025-02-02", "steps", 100), (1, "2025-02-02", "kilometers", 1), (1, "2025-02-02", "calories_burned", 200);
