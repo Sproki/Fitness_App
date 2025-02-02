@@ -125,7 +125,7 @@
         <div>
             <h2 class="text-xl text-black mb-3">Wöchentliche Statistiken</h2>
             <div class="bg-gray-100 w-full h-[150px] rounded-[15px]">
-                <div class="flex items-end p-4 h-full justify-between" style="display: <?= empty($weeklyStatistics) ? 'none' : 'block' ?>">
+                <div class="flex items-end p-4 h-full justify-between" style="display: <?= empty($weeklyStatistics) ? 'none' : 'flex' ?>">
                     <?php foreach($weeklyStatistics as $date => $value): ?>
                         <?php
                             $barHeight = ($value / $maxValue) * 100;
