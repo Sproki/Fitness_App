@@ -1,5 +1,6 @@
 <?php 
-    require("connection.php");
+    global $con;
+    require('autoload.php');
     
     $defaultImage = htmlspecialchars("https://placehold.co/100x100", ENT_QUOTES, 'UTF-8');
     
@@ -21,4 +22,3 @@
     }
 
     echo "<img src='$profileImage' class='rounded-full m-3 h-12 w-12'>"; 
-?>

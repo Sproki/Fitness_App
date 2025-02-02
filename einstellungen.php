@@ -1,3 +1,15 @@
+<?php
+    global $con;
+    require("autoload.php");
+
+    if(isset($_POST["submit"])) {
+        $firstname = trim($_POST["firstname"] ?? '');
+        $lastname = trim($_POST["lastname"] ?? '');
+        $email = trim($_POST["email"] ?? '');
+        $password = $_POST["password"] ?? '';
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
