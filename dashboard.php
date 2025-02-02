@@ -19,6 +19,26 @@
     $_SESSION["last_activity"] = time();
 
     $firstname = htmlspecialchars($_SESSION["firstname"]);
+
+    require("connection.php");
+    
+    try {
+        $sql = "SELECT title, description FROM exercises ORDER BY RAND() LIMIT 1";
+        $stmt = $con->prepare($sql);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // Überprüfen, ob ein Eintrag gefunden wurde
+        if ($row) {
+            $title = htmlspecialchars($row['title']);
+            $description = htmlspecialchars($row['description']);
+        } else {
+            $title = "Kein Training gefunden";
+            $description = "Bitte füge neue Übungen hinzu.";
+        }
+    } catch (PDOException $e) {
+        die("Fehler bei der Abfrage: " . $e->getMessage());
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -127,8 +147,8 @@
                 <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex">
                     <img src="https://placehold.co/100x100" class="left-0 w-auto h-full rounded-[15px]">
                     <article class="overflow-scroll my-5 mx-3">
-                        <h3 class="mb-2 font-semibold">Leg Power & Endurance Boost 🏃‍♂️</h3>
-                        <p>5 km Lauf auf mittlerer Geschwindigkeit, gefolgt von 3x10 Kniebeugen mit Zusatzgewicht. Perfekt für Ausdauer und Beinkraft! 🚀🔥</p>
+                        <h3 class="mb-2 font-semibold"><?php echo $title; ?></h3>
+                        <p><?php echo $description; ?></p>
                     </article>
                 </div>
             </div>
