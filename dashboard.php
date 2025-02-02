@@ -60,7 +60,10 @@
         foreach ($rows as $row) {
             $weeklyStatistics[$row['date']] = $row['value'];
         }
-        $maxValue = max($weeklyStatistics);
+
+        if (!empty($weeklyStatistics)) {
+            $maxValue = max($weeklyStatistics);
+        }
     } catch (PDOException $e) {
         die("Fehler bei der Abfrage: " . $e->getMessage());
     } 
@@ -122,7 +125,7 @@
         <div>
             <h2 class="text-xl text-black mb-3">Wöchentliche Statistiken</h2>
             <div class="bg-gray-100 w-full h-[150px] rounded-[15px]">
-                <div class="flex items-end p-4 h-full justify-between">
+                <div class="flex items-end p-4 h-full justify-between" style="display: <?= empty($weeklyStatistics) ? 'none' : 'block' ?>">
                     <?php foreach($weeklyStatistics as $date => $value): ?>
                         <?php
                             $barHeight = ($value / $maxValue) * 100;
@@ -135,6 +138,10 @@
                         </span>
                     </div>
                     <?php endforeach; ?>
+                </div>
+
+                <div class="flex p-4 h-full justify-center items-center content-center justify-items-center" style="display: <?= empty($weeklyStatistics) ? 'block' : 'none' ?>">
+                    <p>Keine Statistiken vorhanden, du fauler Hund</p>
                 </div>
             </div>
         </div>
