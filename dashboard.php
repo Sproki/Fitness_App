@@ -25,6 +25,7 @@
 
     $statistics = [];
     $weeklyStatistics = [];
+    $medals = [];
     $maxValue = 0;
 
     try {
@@ -64,6 +65,19 @@
         if (!empty($weeklyStatistics)) {
             $maxValue = max($weeklyStatistics);
         }
+
+        $stmt = $con->prepare("SELECT mu.date, ms.`key`, ms.image_path from medals_user mu join sport_app.medals_settings ms on mu.medals_setting_id = ms.id where user_id = :userId order by date desc limit 3");
+        $stmt->execute([':userId' => $userId]);
+        $rows = $stmt->fetchAll();
+
+        foreach ($rows as $row) {
+            $medals[] = [
+                'key' => $row['key'],
+                'date' => (new DateTimeImmutable($row['date']))->format('F Y'),
+                'image' => $row['image_path'],
+            ];
+        }
+
     } catch (PDOException $e) {
         die("Fehler bei der Abfrage: " . $e->getMessage());
     } 
@@ -83,11 +97,11 @@
 
         <?php include("components/darkModeButton.html"); ?>
     </header>
-    <body class="z-10 bg-white dark:bg-black">
+    <body class="z-10 bg-white">
         <div class="mx-[40px] mb-20">
             <div class="my-5">
-                <h2 class="text-2xl text-black dark:text-white">Willkommen zurück💪</h2>
-                <h1 class="text-3xl text-black dark:text-white font-bold"><?php echo $firstname?></h1>
+                <h2 class="text-2xl text-black">Willkommen zurück💪</h2>
+                <h1 class="text-3xl text-black font-bold"><?php echo $firstname?></h1>
             </div>
         <div class="grid grid-flow-col grid-rows-2 gap-[10px]">
             <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px] flex flex-col items-center justify-center gap-2">
@@ -123,7 +137,8 @@
         <hr class="my-5">
 
         <div>
-            <h2 class="text-xl text-black mb-3">Wöchentliche Statistiken</h2>
+            <h2 class="text-xl text-black mb-1">Wöchentliche Statistiken</h2>
+            <h3 class="mb-3 text-xs">Verbrannte Kalorien</h3>
             <div class="bg-gray-100 w-full h-[150px] rounded-[15px]">
                 <div class="flex items-end p-4 h-full justify-between" style="display: <?= empty($weeklyStatistics) ? 'none' : 'flex' ?>">
                     <?php foreach($weeklyStatistics as $date => $value): ?>
@@ -140,7 +155,7 @@
                     <?php endforeach; ?>
                 </div>
 
-                <div class="flex p-4 h-full justify-center items-center content-center justify-items-center" style="display: <?= empty($weeklyStatistics) ? 'block' : 'none' ?>">
+                <div class="flex p-4 h-full justify-center items-center content-center justify-items-center" style="display: <?= empty($weeklyStatistics) ? 'flex' : 'none' ?>">
                     <p>Keine Statistiken vorhanden, du fauler Hund</p>
                 </div>
             </div>
@@ -150,14 +165,39 @@
 
         <div>
             <h2 class="text-xl text-black mb-3">Deine verdienten Medallien</h2>
-            <div class="bg-gray-100 w-full h-[100px] rounded-[15px] flex items-center justify-center overflow-x-auto">
-                <div class="flex gap-[10px]">
-                    <img src="https://placehold.co/100x100" class="rounded-full w-[80px] h-[80px]">
-                    <img src="https://placehold.co/100x100" class="rounded-full w-[80px] h-[80px]">
-                    <img src="https://placehold.co/100x100" class="rounded-full w-[80px] h-[80px]">
+            <a class="bg-gray-100 w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden" href="medals.php">
+                <div class="flex gap-[10px] p-4">
+                    <?php foreach ($medals as $medal): ?>
+                        <div class="flex flex-col">
+                            <img src="<?= $medal['image'] ?>" class="rounded-full w-[80px] h-[80px]">
+                            <span class="mt-2 text-xs text-center">
+                              <?= match($medal['key']) {
+                                  'steps' => 'Schritte',
+                                  'kilometers' => 'Kilometers',
+                                  'calories_burned' => 'Verbrannte Kalorien'
+                              } ?>
+                            </span>
+                            <span class="mt-2 text-xs text-center">
+                              <?= $medal['date'] ?>
+                            </span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </a>
+        </div>
+
+            <hr class="my-5">
+
+            <div>
+                <h2 class="text-xl mb-5">Training of the Day 🏋️‍♂️</h2>
+                <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex">
+                    <img src="https://placehold.co/100x100" class="left-0 w-auto h-full rounded-[15px]">
+                    <article class="overflow-scroll my-5 mx-3">
+                        <h3 class="mb-2 font-semibold"><?php echo $title; ?></h3>
+                        <p><?php echo $description; ?></p>
+                    </article>
                 </div>
             </div>
-        </div>
 
             <hr class="my-5">
 
@@ -201,18 +241,6 @@
 
             <hr class="my-5">
 
-            <div>
-                <h2 class="text-xl mb-5">Training of the Day 🏋️‍♂️</h2>
-                <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex">
-                    <img src="https://placehold.co/100x100" class="left-0 w-auto h-full rounded-[15px]">
-                    <article class="overflow-scroll my-5 mx-3">
-                        <h3 class="mb-2 font-semibold"><?php echo $title; ?></h3>
-                        <p><?php echo $description; ?></p>
-                    </article>
-                </div>
-            </div>
-
-             <hr class="my-5">
         </div>
     </body>
         <script src="https://cdn.tailwindcss.com"></script>
