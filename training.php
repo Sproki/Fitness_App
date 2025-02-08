@@ -1,4 +1,11 @@
 <?php
+    session_start();
+
+    if (!isset($_SESSION["user_id"])) {
+        header("Location: index.php");
+        exit;
+    }
+
     global $con;
     require("autoload.php");
 ?>
@@ -19,8 +26,26 @@
         <?php include("components/darkModeButton.html"); ?>
     </header>
 
-    <body>
-        <h1>Hello World</h1>
+    <body class="z-10 bg-white">
+        <div class="mb-20 mx-[40px]">
+            <div class="bg-gray-200 w-full h-[150px] rounded-[15px] flex">
+                <img src="https://placehold.co/100x100" class="left-0 w-auto h-full rounded-[15px]">
+                <div class="my-5 mx-3">
+                    <h3 class="text-xl mb-[5px]">Mittagessen</h3>
+                    <h4 class="font-bold mb-[3px]">Hamburger</h4>
+                    <h4>300 kcal</h4>
+                    <a href="diet_plan.php" class="bg-blue-500 p-1 rounded-full text-white mt-2">Mehr erfahren</a>
+                </div>
+            </div>
+            <div class="flex justify-between">
+                <div class="bg-gray-200 w-[170px] h-[170px] mt-[20px] rounded-[15px]">
+
+                </div>
+                <div class="bg-gray-200 w-[170px] h-[170px] mt-[20px] rounded-[15px]">
+
+                </div>
+            </div>
+        </div>
     </body>
 
     <script src="https://cdn.tailwindcss.com"></script>

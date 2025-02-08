@@ -1,4 +1,4 @@
-SET @userIDTest = 2;
+SET @userIDTest = 1;
 
 INSERT INTO statistic(user_id, date, `key`, value)
 VALUES

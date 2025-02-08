@@ -1,12 +1,13 @@
-<?php 
-    session_start();
-    
-    $sessionTimeout = 600; // 10 Minuten
+<?php
 
-    if (!isset($_SESSION["firstname"])) {
+    session_start();
+
+    if (!isset($_SESSION["user_id"])) {
         header("Location: index.php");
         exit;
     }
+
+    $sessionTimeout = 600; // 10 Minuten
 
     // Session Timeout überprüfen
     if (isset($_SESSION["last_activity"]) && (time() - $_SESSION["last_activity"]) > $sessionTimeout) {
@@ -33,7 +34,7 @@
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
         // Überprüfen, ob ein Eintrag gefunden wurde
         if ($row) {
             $title = htmlspecialchars($row['title']);
@@ -80,7 +81,7 @@
 
     } catch (PDOException $e) {
         die("Fehler bei der Abfrage: " . $e->getMessage());
-    } 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +113,7 @@
                 </div>
             </div>
 
-                
+
             <div class="bg-gray-100 w-full h-[70px] col-span-2 rounded-[15px] flex items-center px-4">
                 <div class="flex items-center gap-2">
                     <p class="text-3xl">🔥</p>
@@ -122,7 +123,7 @@
                     </div>
                 </div>
             </div>
-                
+
             <div class="bg-gray-100 w-full h-[70px] col-span-2 rounded-[15px] flex items-center px-4">
                 <div class="flex items-center gap-2">
                     <p class="text-3xl">🏃</p>
@@ -164,7 +165,7 @@
         <hr class="my-5">
 
         <div>
-            <h2 class="text-xl text-black mb-3">Deine verdienten Medallien</h2>
+            <h2 class="text-xl text-black mb-3">Deine verdienten Medaillen</h2>
             <a class="bg-gray-100 w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden" href="medals.php">
                 <div class="flex gap-[10px] p-4">
                     <?php foreach ($medals as $medal): ?>
@@ -203,40 +204,40 @@
 
         <div>
             <h2 class="text-xl mb-5">Beispielvideos:</h2>
-            <div class="grid grid-cols-2 gap-[20px]">              
+            <div class="grid grid-cols-2 gap-[20px]">
                 <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-1">
-                    <iframe 
+                    <iframe
                         class="w-full h-full rounded-[15px]"
-                        src="https://www.youtube.com/embed/2qOOGrcxuTE?si=ecegmp6snrdyksBd" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        src="https://www.youtube.com/embed/2qOOGrcxuTE?si=ecegmp6snrdyksBd"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
 
                 <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-1">
-                    <iframe 
+                    <iframe
                         class="w-full h-full rounded-[15px]"
-                        src="https://www.youtube.com/embed/vSl23jffAAg?si=341glG97D0mDidLL" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        src="https://www.youtube.com/embed/vSl23jffAAg?si=341glG97D0mDidLL"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
 
                 <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-2 row-2">
-                    <iframe 
+                    <iframe
                         class="w-full h-full rounded-[15px]"
-                        src="https://www.youtube.com/embed/uXFjLXgIcYc?si=y3_1UbWkfTkFn29M" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        src="https://www.youtube.com/embed/uXFjLXgIcYc?si=y3_1UbWkfTkFn29M"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
-            </div>             
+            </div>
         </div>
 
             <hr class="my-5">
