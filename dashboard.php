@@ -194,8 +194,8 @@
                 <div class="bg-gray-100 dark:bg-[#2e2e2e] w-full h-[150px] rounded-[15px] flex">
                     <img src="https://placehold.co/100x100" class="left-0 w-auto h-full rounded-[15px]">
                     <article class="overflow-scroll my-5 mx-3">
-                        <h3 class="mb-2 font-semibold"><?php echo $title; ?></h3>
-                        <p><?php echo $description; ?></p>
+                        <h3 class="mb-2 font-semibold text-black dark:text-white"><?php echo $title; ?></h3>
+                        <p class="text-black dark:text-white"><?php echo $description; ?></p>
                     </article>
                 </div>
             </div>
