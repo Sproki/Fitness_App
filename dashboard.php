@@ -98,18 +98,18 @@
 
         <?php include("components/darkModeButton.html"); ?>
     </header>
-    <body class="z-10 bg-white">
+    <body class="z-10 bg-white dark:bg-black">
         <div class="mx-[40px] mb-20">
             <div class="my-5">
-                <h2 class="text-2xl text-black">Willkommen zurück💪</h2>
-                <h1 class="text-3xl text-black font-bold"><?php echo $firstname?></h1>
+                <h2 class="text-2xl text-black dark:text-white">Willkommen zurück💪</h2>
+                <h1 class="text-3xl text-black font-bold dark:text-white"><?php echo $firstname?></h1>
             </div>
         <div class="grid grid-flow-col grid-rows-2 gap-[10px]">
             <div class="bg-gray-100 w-[150px] h-[150px] row-span-2 rounded-[15px] flex flex-col items-center justify-center gap-2">
                 <p class="text-5xl">🦶</p>
                 <div class="text-center">
-                    <p class="text-[14px] font-semibold">Heute zurückgelegt</p>
-                    <p class="text-[14px] font-bold"><?php echo $statistics['steps'] ?? 0?> Schritte</p>
+                    <p class="text-[14px] font-semibold dark:text-white">Heute zurückgelegt</p>
+                    <p class="text-[14px] font-bold dark:text-white"><?php echo $statistics['steps'] ?? 0?> Schritte</p>
                 </div>
             </div>
 
@@ -118,8 +118,8 @@
                 <div class="flex items-center gap-2">
                     <p class="text-3xl">🔥</p>
                     <div>
-                        <p class="text-[11px] font-semibold">Heute verbrannt</p>
-                        <p class="text-[11px] font-bold"><?php echo $statistics['calories_burned'] ?? 0?> kcal</p>
+                        <p class="text-[11px] font-semibold dark:text-white">Heute verbrannt</p>
+                        <p class="text-[11px] font-bold dark:text-white"><?php echo $statistics['calories_burned'] ?? 0?> kcal</p>
                     </div>
                 </div>
             </div>
@@ -128,8 +128,8 @@
                 <div class="flex items-center gap-2">
                     <p class="text-3xl">🏃</p>
                     <div>
-                        <p class="text-[11px] font-semibold">Heute gelaufen</p>
-                        <p class="text-[11px] font-bold"><?php echo $statistics['kilometers'] ?? 0?> Kilometer</p>
+                        <p class="text-[11px] font-semibold dark:text-white">Heute gelaufen</p>
+                        <p class="text-[11px] font-bold dark:text-white"><?php echo $statistics['kilometers'] ?? 0?> Kilometer</p>
                     </div>
                 </div>
             </div>
@@ -138,8 +138,8 @@
         <hr class="my-5">
 
         <div>
-            <h2 class="text-xl text-black mb-1">Wöchentliche Statistiken</h2>
-            <h3 class="mb-3 text-xs">Verbrannte Kalorien</h3>
+            <h2 class="text-xl text-black mb-1 dark:text-white">Wöchentliche Statistiken</h2>
+            <h3 class="mb-3 text-xs dark:text-white">Verbrannte Kalorien</h3>
             <div class="bg-gray-100 w-full h-[150px] rounded-[15px]">
                 <div class="flex items-end p-4 h-full justify-between" style="display: <?= empty($weeklyStatistics) ? 'none' : 'flex' ?>">
                     <?php foreach($weeklyStatistics as $date => $value): ?>
@@ -149,14 +149,14 @@
                     <div class="flex flex-col items-center justify-end h-full">
                         <div class="bg-blue-500 w-4 rounded-md" style="height: <?= $barHeight ?>%;">
                         </div>
-                        <span class="mt-2 text-xs text-center">
+                        <span class="mt-2 text-xs text-center dark:text-white">
                           <?= (new DateTimeImmutable($date))->format('D') ?>
                         </span>
                     </div>
                     <?php endforeach; ?>
                 </div>
 
-                <div class="flex p-4 h-full justify-center items-center content-center justify-items-center" style="display: <?= empty($weeklyStatistics) ? 'flex' : 'none' ?>">
+                <div class="flex p-4 h-full justify-center items-center content-center justify-items-center dark:text-white" style="display: <?= empty($weeklyStatistics) ? 'flex' : 'none' ?>">
                     <p>Keine Statistiken vorhanden, du fauler Hund</p>
                 </div>
             </div>
@@ -165,20 +165,20 @@
         <hr class="my-5">
 
         <div>
-            <h2 class="text-xl text-black mb-3">Deine verdienten Medaillen</h2>
+            <h2 class="text-xl text-black mb-3 dark:text-white">Deine verdienten Medaillen</h2>
             <a class="bg-gray-100 w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden" href="medals.php">
                 <div class="flex gap-[10px] p-4">
                     <?php foreach ($medals as $medal): ?>
                         <div class="flex flex-col">
                             <img src="<?= $medal['image'] ?>" class="rounded-full w-[80px] h-[80px]">
-                            <span class="mt-2 text-xs text-center">
+                            <span class="mt-2 text-xs text-center dark:text-white">
                               <?= match($medal['key']) {
                                   'steps' => 'Schritte',
                                   'kilometers' => 'Kilometers',
                                   'calories_burned' => 'Verbrannte Kalorien'
                               } ?>
                             </span>
-                            <span class="mt-2 text-xs text-center">
+                            <span class="mt-2 text-xs text-center dark:text-white">
                               <?= $medal['date'] ?>
                             </span>
                         </div>
@@ -190,7 +190,7 @@
             <hr class="my-5">
 
             <div>
-                <h2 class="text-xl mb-5">Training of the Day 🏋️‍♂️</h2>
+                <h2 class="text-xl mb-5 dark:text-white">Training of the Day 🏋️‍♂️</h2>
                 <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex">
                     <img src="https://placehold.co/100x100" class="left-0 w-auto h-full rounded-[15px]">
                     <article class="overflow-scroll my-5 mx-3">
@@ -203,7 +203,7 @@
             <hr class="my-5">
 
         <div>
-            <h2 class="text-xl mb-5">Beispielvideos:</h2>
+            <h2 class="text-xl mb-5 dark:text-white">Beispielvideos:</h2>
             <div class="grid grid-cols-2 gap-[20px]">
                 <div class="bg-gray-100 w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-1">
                     <iframe

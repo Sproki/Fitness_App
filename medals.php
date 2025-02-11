@@ -67,8 +67,8 @@ foreach ($rows as $row) {
     <?php include("components/navbar.html"); ?>
 </header>
 
-<body class="p-4">
-<h1 class="text-xl text-black mb-3">Medaillen aus dem Jahr <?= $selectedYear ?></h1>
+<body class="p-4 bg-white dark:bg-black">
+<h1 class="text-xl text-black mb-3 dark:text-white">Medaillen aus dem Jahr <?= $selectedYear ?></h1>
 <div class="w-full">
     <form method="GET" class="w-full">
         <select
@@ -89,7 +89,7 @@ foreach ($rows as $row) {
 <div class="my-5 border border-solid"></div>
 <div class="flex flex-col gap-4">
 <?php foreach($sortedMedals as $month => $medals): ?>
-<h2 class="text-xl text-black mb-1">
+<h2 class="text-xl text-black mb-1 dark:text-white">
     <?= [1 => 'Januar', 2 => 'Februar', 3 => 'März', 4 => 'April', 5 => 'Mai', 6 => 'Juni', 7 => 'Juli', 8 => 'August', 9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Dezember'][$month] ?>
     <?= $selectedYear ?>
 </h2>
@@ -97,7 +97,7 @@ foreach ($rows as $row) {
 <?php foreach($medals as $medal): ?>
     <div class="flex flex-col gap-4 bg-gray-100 p-3 w-[120px] items-center justify-center">
         <img src="<?= $medal['image'] ?>" class="rounded-full w-[80px] h-[80px]">
-        <span class="mt-2 text-xs text-center">
+        <span class="mt-2 text-xs text-cente dark:text-whiter">
           <?= match($medal['key']) {
               'steps' => 'Schritte',
               'kilometers' => 'Kilometers',
@@ -107,7 +107,7 @@ foreach ($rows as $row) {
         <div class="relative w-full bg-gray-400 rounded-full h-8 overflow-hidden">
             <div class="bg-blue-600 h-8 rounded-full" style="width: <?= round(($medal['userValue'] / $medal['value']) * 100) ?>%;"></div>
             <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-white whitespace-nowrap text-xs">
+                <span class="text-white whitespace-nowrap text-xs dark:text-white">
                     <?=
                         ($medal['userValue'] - $medal['value'] == 0) ? number_format((int) $medal['value'], 0, '', '.') :
                         sprintf('%s / %s', number_format((int) $medal['userValue'], 0, '', '.'), number_format((int) $medal['value'], 0, '', '.'))
