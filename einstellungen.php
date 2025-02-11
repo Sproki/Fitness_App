@@ -22,9 +22,9 @@
     </header>
 
     <body>
-        <div class="flex items-center flex-col justify-center min-h-screen bg-gray-100">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
-                <h2 class="text-xl font-semibold mb-4">Profilbild aktualisieren</h2>
+        <div class="flex items-center flex-col justify-center min-h-screen bg-white dark:bg-[#121212]">
+            <div class="bg-gray-100dark:bg-[#2e2e2e]  p-6 rounded-lg shadow-lg w-96 text-center">
+                <h2 class="text-xl font-semibold mb-4 text-black dark:text-white">Profilbild aktualisieren</h2>
                 <div class="relative w-32 h-32 mx-auto mb-4">
                     <img id="profileImage" src="<?php echo isset($_SESSION['profile_image']) ? $_SESSION['profile_image'] : 'https://placehold.co/100x100'; ?>" alt="Profilbild" class="w-full h-full rounded-full object-cover border border-gray-300">
                 </div>
