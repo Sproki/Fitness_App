@@ -1,4 +1,5 @@
 uploads
 .env
+.env.example
 vendor
 .idea

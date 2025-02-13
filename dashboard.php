@@ -238,6 +238,87 @@
                     </iframe>
                 </div>
             </div>
+
+                <!-- Versteckte Videos -->
+            <div id="moreVideos" class="grid grid-cols-2 gap-[20px] mt-4 hidden">
+                <div class="bg-gray-100 dark:bg-[#2e2e2e] w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-1">
+                    <iframe
+                        class="w-full h-full rounded-[15px]"
+                        src="https://www.youtube.com/embed/4-ZJj9qd9cQ?si=X4DJ0p13SrNxWtm6"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-[#2e2e2e] w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-1">
+                    <iframe
+                        class="w-full h-full rounded-[15px]"
+                        src="https://www.youtube.com/embed/wND4NmTQjwk?si=crTft3VRGBuMwn2T"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-[#2e2e2e] w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-2 row-2">
+                    <iframe
+                        class="w-full h-full rounded-[15px]"
+                        src="https://www.youtube.com/embed/89F7Gcpi_Rk?si=vB9nCjdIjJKmIOI1"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-[#2e2e2e] w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-1">
+                    <iframe
+                        class="w-full h-full rounded-[15px]"
+                        src="https://www.youtube.com/embed/uEacokDMo-A?si=Lpr1NlY1HT_LtR4V"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-[#2e2e2e] w-full h-[150px] rounded-[15px] flex items-center justify-center overflow-hidden col-span-1">
+                    <iframe
+                        class="w-full h-full rounded-[15px]"
+                        src="https://www.youtube.com/embed/9Glp2VoF51k?si=WKlulyoxoLX61dzN"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <button id="toggleButton" class="mt-4 bg-gray-100 dark:bg-[#2e2e2e] text-black dark:text-white px-4 py-2 rounded-lg w-full">
+                    Mehr anzeigen
+            </button>
+
+        </div>
+
+        <script>
+    document.getElementById("toggleButton").addEventListener("click", function () {
+        var moreVideos = document.getElementById("moreVideos");
+        var button = document.getElementById("toggleButton");
+
+        if (moreVideos.classList.contains("hidden")) {
+            moreVideos.classList.remove("hidden");
+            button.textContent = "Weniger anzeigen";
+        } else {
+            moreVideos.classList.add("hidden");
+            button.textContent = "Mehr anzeigen";
+        }
+    });
+</script>
+        
         </div>
 
             <hr class="my-5">
