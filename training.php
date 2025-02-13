@@ -34,7 +34,7 @@
                     <h3 class="text-xl mb-[5px] text-black dark:text-white">Mittagessen</h3>
                     <h4 class="font-bold mb-[3px] text-black dark:text-white">Hamburger</h4>
                     <h4>300 kcal</h4>
-                    <a href="diet_plan.php" class="bg-blue-500 p-1 rounded-full text-white mt-2">Mehr erfahren</a>
+                    <a href="nutrition_plan.php" class="bg-blue-500 p-1 rounded-full text-white mt-2">Mehr erfahren</a>
                 </div>
             </div>
             <div class="flex justify-between">

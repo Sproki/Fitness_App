@@ -18,4 +18,4 @@ $sql = "UPDATE statistic
 $stmt = $con->prepare($sql);
 $stmt->execute([':userId' => $userId, ':calories' => $consumedCalories, ':today' => $today]);
 
-header("location:diet_plan.php");
+header("location:nutrition_plan.php");

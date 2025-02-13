@@ -1,3 +1,6 @@
+TRUNCATE statistic;
+TRUNCATE medals_user;
+
 SET @userIDTest = 1;
 
 INSERT INTO statistic(user_id, date, `key`, value)
@@ -38,4 +41,6 @@ VALUES
 INSERT INTO medals_user(user_id, medals_setting_id, date) VALUES
     (@userIDTest, 1, SYSDATE()),
     (@userIDTest, 2, SYSDATE()),
-    (@userIDTest, 3, SYSDATE());
+    (@userIDTest, 3, SYSDATE()),
+    (@userIDTest, 4, SYSDATE()),
+    (@userIDTest, 5, SYSDATE());
