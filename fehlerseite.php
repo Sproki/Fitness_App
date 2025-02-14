@@ -1,47 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Document</title>
-    </head>
-
-    <header>
-        <?php include("components/navbar.html"); ?>
-    </header>
-
-
-    <body>
-
-    
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Seite nicht gefunden</title>
     <style>
-    
-        body, html {
-            height: 100%; 
-            margin: 0;     
-            display: flex;
-            justify-content: center;  
-            align-items: center;      
+        body {
             font-family: Arial, sans-serif;
-            background-color: #ffffff; 
-     }
-
-    
-        .center-text {
-            font-size: 2rem;
+            background-color: #f0f0f0;
             text-align: center;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 50px;
         }
+        h1 {
+            color: #e74c3c;
+            font-size: 10vw; 
+        }
+        p {
+            color: #555;
+            font-size: 20px;
+        }
+        .error-image {
+            width: 80%;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+     
     </style>
-        <body>            
-
-            <div class="center-text">
-                <p>Ein unerwarteter Fehler ist aufgetreten.</p>
-            </div>
-            
-        </body>
-        </html> 
+</head>
+<body>
+    <h1>404</h1>
+    <p>Ups! Diese Seite wurde nicht gefunden.</p>
+    <img src="404.jpg" alt="404 Image" class="error-image">
+</body>
+</html>
