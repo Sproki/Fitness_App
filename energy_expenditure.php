@@ -57,7 +57,6 @@
                 die("Fehler: Beim Speichern in der Datenbank ist ein Problem aufgetreten.");
             }
 
-            var_dump($energy_expenditure, $gender, $weight, $height, $age, $activityLevelFactor);
         } catch (e) {
             die("Ein unerwarteter Fehler ist aufgetreten.");
         }
@@ -79,7 +78,7 @@
     </header>
     <body class="z-10 bg-white">
         <div class="mb-20 mx-[40px]">
-            <h2 class="text-2xl text-black dark:text-white">Dein Gesamtenergiebedarf brechnen</h2>
+            <h2 class="text-2xl text-black">Dein Gesamtenergiebedarf brechnen</h2>
             <hr class="my-5">
             <form method="POST" action="energy_expenditure.php">
                 <div class="flex justify-between w-full mb-5">

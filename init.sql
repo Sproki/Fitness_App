@@ -1,6 +1,9 @@
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS exercises;
 DROP TABLE IF EXISTS statistic;
+DROP TABLE IF EXISTS meals;
+DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS medals_settings;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users
 (
@@ -28,7 +31,7 @@ CREATE TABLE statistic
     id      INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT  NOT NULL,
     `date`  DATE NOT NULL DEFAULT NOW(),
-    `key`   ENUM('steps', 'kilometers', 'calories_burned', 'calories_consumed'),
+    `key`   ENUM('steps', 'kilometers', 'calories_burned'),
     value   INT  NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id),
     UNIQUE (user_id, `date`, `key`)
@@ -44,15 +47,24 @@ CREATE TABLE medals_settings
     UNIQUE (`key`, stage, `value`)
 );
 
-CREATE TABLE medals_user
-(
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT  NOT NULL,
-    medals_setting_id INT  NOT NULL,
-    `date`    DATE NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (id),
-    FOREIGN KEY (medals_setting_id) REFERENCES medals_settings (id),
-    UNIQUE(user_id, medals_setting_id,  `date` )
+CREATE TABLE recipes (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    description LONGTEXT,
+    calories DECIMAL(6, 2) NOT NULL,
+    amount_in_grams DECIMAL(5, 2) NOT NULL CHECK ( amount_in_grams > 0 ),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_by INT,
+    FOREIGN KEY (created_by) REFERENCES users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE meals (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    user_id INT NOT NULL,
+    recipes_id INT NOT NULL,
+    meal_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+    FOREIGN KEY (recipes_id) REFERENCES recipes (id) ON DELETE CASCADE
 );
 
 INSERT INTO exercises(title, description, kcal)

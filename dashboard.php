@@ -67,18 +67,41 @@
             $maxValue = max($weeklyStatistics);
         }
 
-        $stmt = $con->prepare("SELECT mu.date, ms.`key`, ms.image_path from medals_user mu join sport_app.medals_settings ms on mu.medals_setting_id = ms.id where user_id = :userId order by date desc limit 3");
-        $stmt->execute([':userId' => $userId]);
+        $stmt = $con->prepare("SELECT id, `key`, stage, `value`, image_path from medals_settings");
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+
+        $baseMedals = [];
+         foreach($rows as $row) {
+             $baseMedals[] = [
+                 'id' => $row['id'],
+                 'key' => $row['key'],
+                 'stage' => $row['stage'],
+                 'value' => $row['value'],
+                 'image' => $row['image_path'],
+                 'userValue' => 0
+             ];
+         }
+
+        $userId = $_SESSION['user_id'];
+        $stmt = $con->prepare("SELECT `key`, SUM(`value`) as 'value' from statistic where user_id = :userId and `date` >= :date group by `key`");
+        $stmt->execute([':userId' => $userId, ':date' => date("Y-m-01")]);
         $rows = $stmt->fetchAll();
 
         foreach ($rows as $row) {
-            $medals[] = [
-                'key' => $row['key'],
-                'date' => (new DateTimeImmutable($row['date']))->format('F Y'),
-                'image' => $row['image_path'],
-            ];
-        }
+            foreach ($baseMedals as $index => $medal) {
+                if ($medal['key'] != $row['key']) {
+                    continue;
+                }
 
+                if ($medal['value'] > $row['value']) {
+                    continue;
+                }
+
+                $medal['userValue'] = $row['value'];
+                $medals[] = $medal;
+            }
+        }
     } catch (PDOException $e) {
         die("Fehler bei der Abfrage: " . $e->getMessage());
     }
