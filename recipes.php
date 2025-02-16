@@ -36,7 +36,7 @@
             <h3 class="text-lg text-gray-600">Wähle ein Rezept aus (klicke drauf)</h3>
             <hr class="my-5">
             <?php foreach ($recipes as $recipe): ?>
-                <div class="w-full h-[150px] bg-gray-100 rounded-[15px] flex mb-3 cursor-pointer recipe-item relative"
+                <div class="w-full h-[150px] bg-gray-100 rounded-[15px] flex mb-3 cursor-pointer recipe-item"
                      data-recipe-id="<?= htmlspecialchars($recipe['id']) ?>">
                     <img src="https://placehold.co/50x100" class="left-0 w-auto h-full rounded-[15px]">
                     <article class="overflow-scroll w-full my-5 mx-3">

@@ -29,23 +29,16 @@
 
             $activityFactor = $activityFactors[$activityLevel];
 
-            switch ($gender) {
-                case "male":
-                    $energy_expenditure = (66 + (13.8 * $weight) + (5.0 * $height) + (6.8 * $age)) * $activityFactor;
-                    break;
-
-                case "female":
-                    $energy_expenditure = (655 + (9.5 * $weight) + (1.9 * $height) + (4.7 * $age)) * $activityFactor;
-                    break;
-
-                default:
-                    $energy_expenditure = 0;
-            }
+            $energy_expenditure = match ($gender) {
+                "male" => (66 + (13.8 * $weight) + (5.0 * $height) + (6.8 * $age)) * $activityFactor,
+                "female" => (655 + (9.5 * $weight) + (1.9 * $height) + (4.7 * $age)) * $activityFactor,
+                default => 0,
+            };
 
             $stmt = $con->prepare(
                     "UPDATE users 
                             SET `energy_expenditure` = :energyExpenditure 
-                            WHERE user_id = :userId"
+                            WHERE id = :userId"
                             );
             $stmt->bindParam(":energyExpenditure", $energy_expenditure);
             $stmt->bindParam(":userId", $user_id);

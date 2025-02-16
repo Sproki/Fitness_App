@@ -21,4 +21,4 @@
         $profileImage = $defaultImage;
     }
 
-    echo "<a href='einstellungen.php'><img src='$profileImage' class='rounded-full m-3 h-12 w-12'></a>";
+    echo "<a href='settings.php'><img src='$profileImage' class='rounded-full m-3 h-12 w-12'></a>";
