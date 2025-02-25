@@ -11,8 +11,6 @@
         exit;
     }
 
-
-
     if (isset($_POST["submit"])) {
         $name = $_POST["name"];
         $description = $_POST["description"];
